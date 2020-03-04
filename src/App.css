@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+body {
+  line-height: 1.3125;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.retweetStatus {
+  font: 13px 'Segoe UI';
+  font-weight: 400;
+  color: rgb(101, 119, 134);
+  box-sizing: border-box;
+  display: inline;
+  float: none;
+  position: static;
+  z-index: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.name {
+  font: 15px 'Segoe UI';
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  display: inline;
+  float: none;
+  position: static;
+  z-index: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.screenName {
+  font: 15px 'Segoe UI';
+  font-weight: 400;
+  color: rgb(101, 119, 134);
+  box-sizing: border-box;
+  display: inline;
+  float: none;
+  position: static;
+  z-index: auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text {
+  font: 15px 'Segoe UI';
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  display: inline;
+  float: none;
+  position: static;
+  z-index: auto;
 }
