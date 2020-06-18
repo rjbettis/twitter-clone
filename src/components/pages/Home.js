@@ -11,7 +11,7 @@ export class Home extends Component {
     tweets: [],
     customTweets: [],
     filteredUrls: [],
-    validLinks: []
+    validLinks: [],
   };
 
   async componentDidMount() {
@@ -27,8 +27,8 @@ export class Home extends Component {
 
   extractedTweetData() {
     //iterate through original tweet object to get the data i need
-    var customTweetData = this.state.tweets.map(twt => ({
-      urls: twt.entities.urls.map(twt2 => twt2.url),
+    var customTweetData = this.state.tweets.map((twt) => ({
+      urls: twt.entities.urls.map((twt2) => twt2.url),
       tweetId: twt.id,
       userId: twt.user.id,
       userName: twt.user.name,
@@ -37,6 +37,9 @@ export class Home extends Component {
       reply: twt.in_reply_to_status_id,
       tweetText: twt.full_text,
       avatarUrl: twt.user.profile_image_url,
+      media: twt.entities.media,
+      tweetTextRange: twt.display_text_range[1],
+      slicedTweet: twt.full_text.slice(0, twt.display_text_range[1]),
       retweetedFullText: twt.retweeted_status
         ? twt.retweeted_status.full_text
         : 'false',
@@ -45,10 +48,12 @@ export class Home extends Component {
         : 'false',
       retweetedUserName: twt.retweeted_status
         ? twt.retweeted_status.user.name
-        : 'false'
+        : 'false',
     }));
 
-    this.setState({ customTweets: customTweetData });
+    this.setState({
+      customTweets: customTweetData,
+    });
   }
 
   render() {
@@ -56,7 +61,7 @@ export class Home extends Component {
       <Container>
         <Row>
           <Col lg={8}>
-            {this.state.customTweets.map(twt => (
+            {this.state.customTweets.map((twt) => (
               <Card key={twt.tweetId}>
                 <Card.Body>
                   <Media>
@@ -88,11 +93,8 @@ export class Home extends Component {
                       <br />
                       {/* tweet text*/}
                       <span class="text">
-                        {twt.retweetedStatus === 'true'
-                          ? twt.retweetedFullText
-                          : twt.tweetText
-                              .replace(twt.urls[0], 'REPLACED')
-                              .replace(twt.urls[1], 'REPLACED')}
+                        {console.log(twt.tweetText.length)}
+                        {twt.slicedTweet}
                       </span>
                     </Media.Body>
                   </Media>

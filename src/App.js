@@ -10,7 +10,7 @@ import Home from './components/pages/Home';
 
 class App extends Component {
   state = {
-    details: []
+    details: [],
   };
 
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
       <Router>
         <Container>
           <Row>
-            <Col lg={2}>
+            <Col lg={1}>
               <Sidebar />
             </Col>
             <Col>
